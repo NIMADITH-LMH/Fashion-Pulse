@@ -1,0 +1,2 @@
+# Fashion Pulse
+ VirtualDressingMall is an innovative web application designed to enhance the online shopping experience by allowing users to browse dresses from various shops before making a purchase. Built using the MERN stack (MongoDB, Express.js, React, and Node.js), this platform bridges the gap between physical and online shopping, providing a seamless and interactive way for users to explore fashion options.
