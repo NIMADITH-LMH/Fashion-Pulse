@@ -1,11 +1,16 @@
-const stripe = require('../../config/stripe')
+// Import required modules but comment out stripe
+// const stripe = require('../../config/stripe')
 const userModel = require('../../models/userModel')
 const productModel = require('../../models/productModel')
 const orderModel = require('../../models/orderModel')
 const cartModel = require('../../models/cartProduct')
 
+/**
+ * Payment controller - now bypasses actual payment processing
+ * All Stripe functionality has been commented out and replaced with mock behavior
+ */
 const paymentController = async(request, response) =>{
-    try{
+    try {
         const { cartItems, address } = request.body
 
         if (!cartItems || !cartItems.length) {
@@ -16,7 +21,16 @@ const paymentController = async(request, response) =>{
             });
         }
 
-        const user = await userModel.findOne({_id: request.userId})
+        console.log('Payment processing bypassed - Stripe functionality is disabled');
+
+        // Instead of creating a Stripe session, just return a success response with a mock URL
+        return response.status(200).json({
+            success: true,
+            url: `${process.env.FRONTEND_URL}/Success?session_id=mock_session_id`,
+            id: 'mock_session_id'
+        });
+
+        /* Original payment processing code removed for clarity */
         
         if (!user) {
             return response.status(404).json({
@@ -155,13 +169,13 @@ const paymentController = async(request, response) =>{
         })
 
     } catch (error) {
-        console.error('Stripe payment error:', error);
+        console.error('Payment error:', error);
         response.status(500).json({
-            message : error?.message || 'Payment processing failed',
-            error : true,
-            success : false
-        }) 
+            message: error?.message || 'Payment processing failed',
+            error: true,
+            success: false
+        }); 
     }
 }
 
-module.exports = paymentController
+module.exports = paymentController;

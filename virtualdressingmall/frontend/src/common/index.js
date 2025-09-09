@@ -5,7 +5,7 @@ import axios from "axios";
 // Function to fetch cart product count
 export const fetchCartCount = async () => {
     try {
-        const response = await axios.get("http://localhost:8080/api/cart/count-of-cart");
+        const response = await axios.get("http://localhost:10000/api/cart/count-of-cart");
         return response.data.count;
     } catch (error) {
         console.error("Error fetching cart count:", error);
@@ -13,7 +13,7 @@ export const fetchCartCount = async () => {
     }
 };
 
-const backendDomin = "http://localhost:8080"
+const backendDomin = "http://localhost:10000"
 
 // Configure axios defaults
 axios.defaults.withCredentials = true;

@@ -89,7 +89,8 @@ const HorizontalCardProduct = ({ category, heading }) => {
             };
             
             // Make the API call directly
-            const response = await fetch('http://localhost:8080/api/add-to-cart', {
+            // Import from config
+            const response = await fetch('http://localhost:10000/api/add-to-cart', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -123,7 +124,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
         try {
             console.log('Fetching comments for product:', productId);
             
-            const response = await fetch(`http://localhost:8080/api/comments/${productId}`);
+            const response = await fetch(`http://localhost:10000/api/comments/${productId}`);
             const data = await response.json();
             
             if (data.success) {
@@ -212,7 +213,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
             console.log('Submitting comment:', commentData);
             
             // Use the API endpoint for comments
-            const response = await fetch('http://localhost:8080/api/comments', {
+            const response = await fetch('http://localhost:10000/api/comments', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -371,7 +372,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
                             }
                             
                             // Otherwise, try to fetch shop details
-                            const response = await fetch(`http://localhost:8080/shop-details/${product.ShopID}`);
+                            const response = await fetch(`http://localhost:10000/shop-details/${product.ShopID}`);
                             const shopData = await response.json();
                             
                             if (shopData.success && shopData.data) {
@@ -454,7 +455,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
         try {
             console.log('Deleting comment:', commentId);
             
-            const response = await fetch(`http://localhost:8080/api/comments/${commentId}`, {
+            const response = await fetch(`http://localhost:10000/api/comments/${commentId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -502,7 +503,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
             }
             
             // If not found in current data, fetch from API
-            const response = await fetch(`http://localhost:8080/product-details`, {
+            const response = await fetch(`http://localhost:10000/product-details`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

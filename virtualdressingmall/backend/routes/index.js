@@ -156,7 +156,8 @@ router.get("/search-products", searchProduct);
 router.get("/search-products", searchProduct);
   
 // Reservation routes
-router.post("/add-reservation", authToken, addReservation, paymentController);
+// Commented out payment processing from reservation
+// router.post("/add-reservation", authToken, addReservation, paymentController);
 router.post("/add-reservation",authToken,addReservation);
 router.get("/get-reservation",getReservationDetails);
 router.post("/update-reservation",updatereservation);
@@ -338,9 +339,9 @@ router.get('/get-bid',getBid)
 router.get('/get-bid-by-specific',getBidbyspecific)
 router.post('/update-bid',updateBid)
 
-//payment
+//payment - Stripe functionality commented out but endpoints still available for compatibility
 router.post("/create-checkout-session", authToken, paymentController);
-router.post("/webhook", webhook);
+router.post("/webhook", webhook); // Using mocked webhook implementation
 // Add direct cart clear route that can be called from success page
 router.post("/clear-cart-after-payment", authToken, async (req, res) => {
     try {

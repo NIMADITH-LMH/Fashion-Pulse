@@ -10,7 +10,7 @@ const AddToCartButton = ({ productId }) => {
     const handleAddToCart = async () => {
         try {
             setLoading(true);
-            const response = await axios.post('http://localhost:8080/api/add-to-cart', {
+            const response = await axios.post('http://localhost:10000/api/add-to-cart', {
                 productId: productId
             }, {
                 withCredentials: true
