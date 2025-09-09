@@ -172,6 +172,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 <div align="center">
-  <p>Developed with ❤️ by NIMADITH-LMH</p>
+  
   <p>© 2025 Fashion-Pulse. All Rights Reserved.</p>
 </div>
