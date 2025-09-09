@@ -16,7 +16,7 @@ Fashion-Pulse is a cutting-edge e-commerce platform designed to transform the on
 - **Interactive Product Catalog**: Browse items with detailed images and specifications
 - **Smart Search & Filtering**: Find products by category, price, seller, ratings, and more
 - **Bidding System**: Participate in product auctions with real-time updates
-- **Secure Checkout Process**: Complete purchases with integrated payment gateway
+- **Checkout Process**: Complete purchases with simulated payment system (Stripe integration available)
 - **Order Tracking**: Monitor order status from purchase to delivery
 - **User Profiles**: Save preferences, manage addresses, and view purchase history
 - **Reviews & Ratings**: Share experiences and make informed buying decisions
@@ -57,7 +57,7 @@ Fashion-Pulse is a cutting-edge e-commerce platform designed to transform the on
 - **MongoDB** - NoSQL database for flexible data storage
 - **Mongoose** - MongoDB object modeling tool
 - **JWT** - Secure authentication and authorization
-- **Stripe** - Payment processing integration
+- **Stripe** - Payment processing integration (disabled in development mode)
 - **Nodemailer** - Email notifications and alerts
 
 ### DevOps & Tools
@@ -74,6 +74,17 @@ Fashion-Pulse is a cutting-edge e-commerce platform designed to transform the on
 - MongoDB
 - npm or yarn
 
+### Important Note on Payments
+⚠️ **Payment Processing**: The Stripe integration has been temporarily disabled in the development environment. Instead, a mock payment system is in place that simulates the checkout flow without requiring actual Stripe API keys. This makes the application easier to set up and test.
+
+To re-enable Stripe for production:
+1. Uncomment the Stripe-related code in:
+   - `backend/config/stripe.js`
+   - `backend/controller/order/paymentController.js`
+   - `backend/controller/order/webhook.js`
+2. Add valid Stripe API keys to your `.env` file
+3. Update the routes in `backend/routes/index.js` as needed
+
 ### Installation
 
 1. **Clone the repository**
@@ -88,7 +99,7 @@ Fashion-Pulse is a cutting-edge e-commerce platform designed to transform the on
    npm install
    
    # Create .env file based on env.sample
-   # Add your MongoDB URI, JWT secret, and Stripe API keys
+   # Add your MongoDB URI and JWT secret
    
    npm run start:dev
    ```
@@ -102,7 +113,7 @@ Fashion-Pulse is a cutting-edge e-commerce platform designed to transform the on
 
 4. **Access the Application**
    - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8080
+   - Backend API: http://localhost:10000
 
 ## 📁 Project Structure
 
