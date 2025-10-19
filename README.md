@@ -1,7 +1,5 @@
  # Fashion-Pulse 👗👔
 
-<div align="center">
-  <img src="frontend/public/logo192.png" alt="Fashion Pulse Logo" width="150">
   <h3>Revolutionizing Online Shopping with Virtual Try-On Technology</h3>
 </div>
 
